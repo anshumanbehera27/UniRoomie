@@ -16,6 +16,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="34dp"
         android:src="@drawable/back"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -102,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:hint="DD"
+
                 android:textSize="20sp"
                 android:textColor="#05ACA3"
                 app:itemCount="2"
@@ -112,7 +114,10 @@
                 app:lineColor="#05ACA3"
                 android:inputType="number"
                 android:fontFamily="@font/product_sans_regular"
-                android:itemBackground="@drawable/edit_text" />
+                android:itemBackground="@drawable/edit_text"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:importantForAccessibility="yes" />
 
             <com.chaos.view.PinView
                 android:id="@+id/mm"
@@ -130,7 +135,11 @@
                 app:lineColor="#05ACA3"
                 android:inputType="number"
                 android:fontFamily="@font/product_sans_regular"
-                android:itemBackground="@drawable/edit_text" />
+                android:itemBackground="@drawable/edit_text"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:importantForAccessibility="yes" />
+
 
             <com.chaos.view.PinView
                 android:id="@+id/yyyy"
@@ -147,7 +156,11 @@
                 app:lineColor="#05ACA3"
                 android:inputType="number"
                 android:fontFamily="@font/product_sans_regular"
-                android:itemBackground="@drawable/edit_text" />
+                android:itemBackground="@drawable/edit_text"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:importantForAccessibility="yes" />
+
         </LinearLayout>
 
         <!-- Date of Birth Description -->

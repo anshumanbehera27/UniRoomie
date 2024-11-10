@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_flatFragment2_to_flatInfoFragment"
             app:destination="@id/flatInfoFragment" />
+        <action
+            android:id="@+id/action_flatFragment2_to_userPictureFragment"
+            app:destination="@id/userPictureFragment" />
     </fragment>
     <fragment
         android:id="@+id/flatImagesFragment"
