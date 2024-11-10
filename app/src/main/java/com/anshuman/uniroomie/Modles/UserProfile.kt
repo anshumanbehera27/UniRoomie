@@ -7,5 +7,5 @@ data class UserProfile(
     val flatImages: FlatImages = FlatImages(),
     val flatDetails: FlatDetails = FlatDetails(),
     val userImage: UserImage = UserImage(),
-    val lifestylePreferences: UserPreferences = UserPreferences()
+    val UserPreferences: UserPreferences = UserPreferences()
 )
