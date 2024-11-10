@@ -13,13 +13,15 @@ import com.anshuman.uniroomie.databinding.ActivitySignUpScreenBinding
 
 class SignUpScreen : AppCompatActivity() {
     lateinit var binding: ActivitySignUpScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-      binding = ActivitySignUpScreenBinding.inflate(layoutInflater)
+        binding = ActivitySignUpScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.btnSignUp.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, UserOnboardingActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "Sign Up Successful", Toast.LENGTH_SHORT).show()
         }

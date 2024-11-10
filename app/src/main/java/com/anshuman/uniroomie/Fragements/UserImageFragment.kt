@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import com.anshuman.uniroomie.R
 
 
-class FlatInfoFragment2 : Fragment() {
+class UserImageFragment : Fragment() {
+
 
 
     override fun onCreateView(
@@ -16,7 +17,8 @@ class FlatInfoFragment2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_flat_info2, container, false)
+        return inflater.inflate(R.layout.fragment_user_picture, container, false)
     }
+
 
 }

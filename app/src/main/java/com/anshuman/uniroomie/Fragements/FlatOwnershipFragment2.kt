@@ -8,16 +8,13 @@ import android.view.ViewGroup
 import com.anshuman.uniroomie.R
 
 
-class userPictureFragment : Fragment() {
-
-
-
+class FlatOwnershipFragment2 : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_picture, container, false)
+        return inflater.inflate(R.layout.fragment_flat2, container, false)
     }
 
 

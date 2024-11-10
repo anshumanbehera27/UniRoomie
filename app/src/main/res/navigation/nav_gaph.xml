@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_gaph"
+    app:startDestination="@id/basicDeatilsFragment1">
+
+    <fragment
+        android:id="@+id/basicDeatilsFragment1"
+        android:name="com.anshuman.uniroomie.Fragements.PersonalDetailsFragment1"
+        android:label="fragment_basic_deatils1"
+        tools:layout="@layout/fragment_basic_deatils1" >
+        <action
+            android:id="@+id/action_basicDeatilsFragment1_to_flatFragment2"
+            app:destination="@id/flatFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/flatFragment2"
+        android:name="com.anshuman.uniroomie.Fragements.FlatOwnershipFragment2"
+        android:label="fragment_flat2"
+        tools:layout="@layout/fragment_flat2" >
+        <action
+            android:id="@+id/action_flatFragment2_to_flatInfoFragment"
+            app:destination="@id/flatInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flatImagesFragment"
+        android:name="com.anshuman.uniroomie.Fragements.FlatImagesFragment3"
+        android:label="fragment_flat_images"
+        tools:layout="@layout/fragment_flat_images" >
+        <action
+            android:id="@+id/action_flatImagesFragment_to_flatInfoFragment2"
+            app:destination="@id/flatInfoFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/flatInfoFragment"
+        android:name="com.anshuman.uniroomie.Fragements.FlatAddressFragment4"
+        android:label="fragment_flat_info"
+        tools:layout="@layout/fragment_flat_info" >
+        <action
+            android:id="@+id/action_flatInfoFragment_to_flatImagesFragment"
+            app:destination="@id/flatImagesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flatInfoFragment2"
+        android:name="com.anshuman.uniroomie.Fragements.FlatDetailsFragment5"
+        android:label="FlatInfoFragment2" >
+        <action
+            android:id="@+id/action_flatInfoFragment2_to_userPictureFragment"
+            app:destination="@id/userPictureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userPictureFragment"
+        android:name="com.anshuman.uniroomie.Fragements.UserImageFragment"
+        android:label="fragment_user_picture"
+        tools:layout="@layout/fragment_user_picture" >
+        <action
+            android:id="@+id/action_userPictureFragment_to_userPersonalInfoFragment"
+            app:destination="@id/userPersonalInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userPersonalInfoFragment"
+        android:name="com.anshuman.uniroomie.Fragements.UserPreferencesFragment"
+        android:label="fragment_user_personal_info"
+        tools:layout="@layout/fragment_user_personal_info" />
+</navigation>
