@@ -52,7 +52,18 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.google.firebase:firebase-bom:33.5.1")
+
+    // For Animation
     implementation ("com.airbnb.android:lottie:6.6.0")
+   // For Date View
+    implementation("io.github.chaosleung:pinview:1.4.4")
+    // For Fragement Navagation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+
+
+
 
 
 
