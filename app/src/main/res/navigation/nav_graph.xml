@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_gaph"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/basicDeatilsFragment1">
 
     <fragment
@@ -27,15 +27,6 @@
             app:destination="@id/userPictureFragment" />
     </fragment>
     <fragment
-        android:id="@+id/flatImagesFragment"
-        android:name="com.anshuman.uniroomie.Fragements.FlatImagesFragment3"
-        android:label="fragment_flat_images"
-        tools:layout="@layout/fragment_flat_images" >
-        <action
-            android:id="@+id/action_flatImagesFragment_to_flatInfoFragment2"
-            app:destination="@id/flatInfoFragment2" />
-    </fragment>
-    <fragment
         android:id="@+id/flatInfoFragment"
         android:name="com.anshuman.uniroomie.Fragements.FlatAddressFragment4"
         android:label="fragment_flat_info"
@@ -43,6 +34,16 @@
         <action
             android:id="@+id/action_flatInfoFragment_to_flatImagesFragment"
             app:destination="@id/flatImagesFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/flatImagesFragment"
+        android:name="com.anshuman.uniroomie.Fragements.FlatImagesFragment3"
+        android:label="fragment_flat_images"
+        tools:layout="@layout/fragment_flat_images" >
+        <action
+            android:id="@+id/action_flatImagesFragment_to_flatInfoFragment2"
+            app:destination="@id/flatInfoFragment2" />
     </fragment>
     <fragment
         android:id="@+id/flatInfoFragment2"
