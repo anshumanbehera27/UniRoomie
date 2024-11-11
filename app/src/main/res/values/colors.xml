@@ -7,4 +7,6 @@
     <color name="light_gray">#F4F6F9</color>
     <color name="login_background">#EBFCFB</color>
     <color name="button_selected">#7109CA</color>
+    <color name="pink">#DB79DB</color>
+    <color name="color2">#8BD7D3</color>
 </resources>

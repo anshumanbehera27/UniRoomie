@@ -39,14 +39,20 @@ class FlatOwnershipFragment2 : Fragment() {
 
         yesButton.setOnClickListener {
             // Change color of the buttons
-            yesButton.setBackgroundColor(ContextCompat.getColor(requireContext(),R.color.button_selected))
+            yesButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink))
+            noButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.color2))
+
+
+
             // Store the user's selection
             hasFlat = true
             updateFlatOwnershipInViewModel()
         }
         noButton.setOnClickListener {
             // Change color of the buttons
-            noButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.button_selected))
+            noButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink))
+            yesButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.color2))
+
 
             // Store the user's selection
             hasFlat = false
@@ -65,8 +71,6 @@ class FlatOwnershipFragment2 : Fragment() {
             }
 
         }
-
-
     }
     private fun updateFlatOwnershipInViewModel() {
         // Create an object with the value of hasFlat and update the ViewModel

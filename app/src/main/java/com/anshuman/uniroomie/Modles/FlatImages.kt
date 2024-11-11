@@ -1,5 +1,7 @@
 package com.anshuman.uniroomie.Modles
 
+import android.graphics.Bitmap
+
 data class FlatImages(
-    val images: List<String> = listOf()
+    val images: List<Bitmap> = listOf()
 )
