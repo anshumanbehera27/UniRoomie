@@ -8,7 +8,7 @@
     android:elevation="3dp">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/pic"
+        android:id="@+id/pivFlatimage"
         android:layout_width="0dp"
         android:scaleType="centerCrop"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.circleImageView"
@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/house_1" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/ivFav"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_margin="16dp"
@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/favorite" />
 
     <TextView
-        android:id="@+id/typeTxt"
+        android:id="@+id/tvflatType"
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:paddingStart="8dp"
@@ -54,8 +54,8 @@
         android:textStyle="bold"
 
         app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/pic"
-        app:layout_constraintTop_toBottomOf="@+id/pic" />
+        app:layout_constraintStart_toStartOf="@+id/pivFlatimage"
+        app:layout_constraintTop_toBottomOf="@+id/pivFlatimage" />
 
     <TextView
         android:id="@+id/scoreTxt"
@@ -113,7 +113,7 @@
         app:tint="@color/black" />
 
     <TextView
-        android:id="@+id/bedTxt"
+        android:id="@+id/tvroomsize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -130,14 +130,14 @@
         android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bedTxt"
-        app:layout_constraintStart_toEndOf="@+id/bedTxt"
-        app:layout_constraintTop_toTopOf="@+id/bedTxt"
-        app:srcCompat="@drawable/bath"
+        app:layout_constraintBottom_toBottomOf="@+id/tvroomsize"
+        app:layout_constraintStart_toEndOf="@+id/tvroomsize"
+        app:layout_constraintTop_toTopOf="@+id/tvroomsize"
+        app:srcCompat="@drawable/man"
         app:tint="@color/black" />
 
     <TextView
-        android:id="@+id/bathTxt"
+        android:id="@+id/tvoccopied"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

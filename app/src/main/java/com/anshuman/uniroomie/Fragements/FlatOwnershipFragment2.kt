@@ -13,9 +13,8 @@ import com.anshuman.uniroomie.R
 import com.anshuman.uniroomie.ViewModels.UserProfileViewModel
 import com.anshuman.uniroomie.databinding.FragmentFlat2Binding
 
-
 class FlatOwnershipFragment2 : Fragment() {
-    private lateinit var _binding :FragmentFlat2Binding
+    private var _binding: FragmentFlat2Binding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: UserProfileViewModel
     private var hasFlat: Boolean? = null
@@ -26,7 +25,7 @@ class FlatOwnershipFragment2 : Fragment() {
     ): View? {
         _binding = FragmentFlat2Binding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(requireActivity()).get(UserProfileViewModel::class.java)
-        return  binding.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,23 +37,17 @@ class FlatOwnershipFragment2 : Fragment() {
         val noButton = binding.NoButton
 
         yesButton.setOnClickListener {
-            // Change color of the buttons
+            // Update UI to show selection
             yesButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink))
             noButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.color2))
-
-
-
-            // Store the user's selection
             hasFlat = true
             updateFlatOwnershipInViewModel()
         }
+
         noButton.setOnClickListener {
-            // Change color of the buttons
+            // Update UI to show selection
             noButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink))
             yesButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.color2))
-
-
-            // Store the user's selection
             hasFlat = false
             updateFlatOwnershipInViewModel()
         }
@@ -64,21 +57,21 @@ class FlatOwnershipFragment2 : Fragment() {
         }
 
         next.setOnClickListener {
-            if (hasFlat == true){
+            if (hasFlat == true) {
                 findNavController().navigate(R.id.action_flatFragment2_to_flatInfoFragment)
-            }else{
+            } else {
                 findNavController().navigate(R.id.action_flatFragment2_to_userPictureFragment)
             }
-
         }
     }
+
     private fun updateFlatOwnershipInViewModel() {
-        // Create an object with the value of hasFlat and update the ViewModel
         val flatOwnership = FlatOwnership(hasFlat ?: false)
         viewModel.updateFlatOwnership(flatOwnership)
     }
 
-
-
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

@@ -298,6 +298,7 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:paddingStart="16dp"
+
                 android:paddingEnd="16dp" />
 
             <LinearLayout

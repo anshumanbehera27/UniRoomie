@@ -41,23 +41,46 @@ class FlatAddressFragment4 : Fragment() {
         val addInfo = binding.inputAddInfo.text.toString().trim()
         val address = "$flatNo, $area, $addInfo"
 
-        if (flatNo.isEmpty() || area.isEmpty() || addInfo.isEmpty()) {
-            binding.inputFlatNo.error = "Please fill all fields"
-            binding.inputArea.error = "Please fill all fields"
-            binding.inputAddInfo.error = "Please fill all fields"
+        // Validate each field individually
+        var isValid = true
+        if (flatNo.isEmpty()) {
+            binding.inputFlatNo.error = "Flat number is required"
+            isValid = false
+        } else {
+            binding.inputFlatNo.error = null
+        }
+
+        if (area.isEmpty()) {
+            binding.inputArea.error = "Area is required"
+            isValid = false
+        } else {
+            binding.inputArea.error = null
+        }
+
+        if (addInfo.isEmpty()) {
+            binding.inputAddInfo.error = "Additional info is required"
+            isValid = false
+        } else {
+            binding.inputAddInfo.error = null
+        }
+
+        if (!isValid) {
+            Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // Parse and validate monthly amount
         val monthlyAmount = try {
             binding.inputMonthlyAmount.text.toString().toDouble()
         } catch (e: NumberFormatException) {
             binding.inputMonthlyAmount.error = "Invalid amount"
             return
         }
+        binding.inputMonthlyAmount.error = null
 
+        // Update ViewModel and navigate
         val flatAddress = FlatAddress(address, monthlyAmount)
         viewModel.updateFlatAddress(flatAddress)
-
         findNavController().navigate(R.id.action_flatInfoFragment_to_flatImagesFragment)
     }
 

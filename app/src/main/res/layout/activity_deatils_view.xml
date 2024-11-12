@@ -50,7 +50,7 @@
                 android:layout_margin="24dp">
 
                 <TextView
-                    android:id="@+id/typeTxt"
+                    android:id="@+id/tvflatType"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:background="@drawable/light_blue_bg"
@@ -168,7 +168,7 @@
                         app:srcCompat="@drawable/bed" />
 
                     <TextView
-                        android:id="@+id/bedTxt"
+                        android:id="@+id/tvroomsize"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -196,7 +196,7 @@
                         app:srcCompat="@drawable/bath" />
 
                     <TextView
-                        android:id="@+id/bathTxt"
+                        android:id="@+id/tvoccopied"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"

@@ -51,9 +51,11 @@ class UserImageFragment : Fragment() {
         binding.next.setOnClickListener {
             if (selectedImageBitmap != null) {
                 // Save the selected image (Bitmap) to UserImage
-                val userImage = UserImage(selectedImageBitmap!!)
-                userProfileViewModel.updateUserImage(userImage)
+                val userImage = UserImage(imagePath = selectedImageBitmap.toString())  // Save path or base64 string if required
+             //   userProfileViewModel.updateUserImage(userImage)
                 Toast.makeText(requireContext(), "Image uploaded successfully", Toast.LENGTH_SHORT).show()
+
+                // Proceed to next fragment
                 findNavController().navigate(R.id.action_userPictureFragment_to_userPersonalInfoFragment)
             } else {
                 Toast.makeText(requireContext(), "Please select an image", Toast.LENGTH_SHORT).show()

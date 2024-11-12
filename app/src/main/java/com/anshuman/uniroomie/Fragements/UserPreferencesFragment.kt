@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.anshuman.uniroomie.MainActivity
 import com.anshuman.uniroomie.Modles.UserPreferences
 import com.anshuman.uniroomie.R
+import com.anshuman.uniroomie.Screens.TestActivity
+
 import com.anshuman.uniroomie.ViewModels.UserProfileViewModel
 import com.anshuman.uniroomie.databinding.FragmentUserPersonalInfoBinding
 
@@ -68,10 +71,21 @@ class UserPreferencesFragment : Fragment() {
             // Update preferences in the ViewModel
             val userPreferences = UserPreferences(drink, smoke, workout, nonVegetarian)
             userProfileViewModel.updateUserPreferences(userPreferences)
+            // TODO Call the Function to Upload all the data to fire base
+            userProfileViewModel.uploadUserData { success ->
+                if (success) {
+                    Toast.makeText(requireContext(), "Profile uploaded successfully", Toast.LENGTH_SHORT).show()
+                    // Navigate to MainActivity or another screen
+                    val intent = Intent(requireContext(), MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(requireContext(), "Failed to upload profile", Toast.LENGTH_SHORT).show()
+                }
+            }
 
-            // Navigate to the next screen
-            val intent = Intent(requireContext(), MainActivity::class.java)
-            startActivity(intent)
+
+
+
 
 
         }

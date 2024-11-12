@@ -1,13 +1,15 @@
 package com.anshuman.uniroomie
 
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.anshuman.uniroomie.Fragements.Home
+
 import com.anshuman.uniroomie.Fragements.chart
 import com.anshuman.uniroomie.Fragements.favorite
 import com.anshuman.uniroomie.Fragements.profile
 import com.anshuman.uniroomie.databinding.ActivityMainBinding
+import com.anshuman.uniroomie.fragments.Home
 
 
 class MainActivity : AppCompatActivity() {
