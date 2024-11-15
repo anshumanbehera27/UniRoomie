@@ -72,6 +72,15 @@ dependencies {
 
     implementation("com.google.code.gson:gson:2.8.9")
 
+    // Location Activity
+    implementation ("com.google.android.gms:play-services-location:15.0.1")
+    implementation ("com.google.android.gms:play-services-places:15.0.1")
+    implementation ("com.google.android.gms:play-services-maps:18.1.0")
+    implementation ("androidx.fragment:fragment:1.5.5")
+    implementation ("com.android.support:support-compat:26.1.0")
+    implementation ("androidx.core:core:1.13.1")
+
+
 
 
 

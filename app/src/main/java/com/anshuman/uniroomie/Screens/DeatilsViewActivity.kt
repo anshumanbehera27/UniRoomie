@@ -1,8 +1,13 @@
 package com.anshuman.uniroomie.Screens
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.CallLog
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.anshuman.uniroomie.R
 import com.bumptech.glide.Glide
 import com.anshuman.uniroomie.databinding.ActivityDeatilsViewBinding
@@ -53,6 +58,77 @@ class DeatilsViewActivity : AppCompatActivity() {
         } else {
             // Set a placeholder if no image is available
             binding.flatimages.setImageResource(R.drawable.house_1)
+        }
+
+
+        // Back button
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+        // Handel the rating based on the flat type
+        assineRating(flatType.toString())
+
+        // Handel the map view From the address
+        binding.tvLocationView.setOnClickListener {
+            Toast.makeText(this, "Map View", Toast.LENGTH_SHORT).show()
+            val addressParts = address?.split(",")?.map { it.trim() }
+
+            if (addressParts?.size!! >= 2) {
+                val city = addressParts[addressParts.size - 2]
+                val state = addressParts[addressParts.size - 1]
+                Toast.makeText(this, "City: $city, State: $state", Toast.LENGTH_SHORT).show()
+
+                // Create an Intent to start the MapActivity
+                val intent = Intent(this, MapActivity::class.java)
+                intent.putExtra("CITY", city)
+                intent.putExtra("STATE", state)
+
+                // Start the MapActivity
+                startActivity(intent)
+
+
+                
+            }
+            else{
+                Toast.makeText(this, "Invalid Address", Toast.LENGTH_SHORT).show()
+
+
+            } }
+
+        // Handel the Phone view Acivity view Based on the data
+        binding.ivphone.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.setData(Uri.parse("tel: +917815081125"))
+            startActivity(intent)
+        }
+
+
+
+
+
+
+
+    }
+
+    // assine rating based on the flat type
+    fun assineRating (flatType: String){
+        val rating = binding.scoreTxt
+        when (flatType) {
+            "Fully Furnished" -> {
+                rating.text = "5"
+            }
+            "Semi Furnished" -> {
+                rating.text = "4"
+            }
+            "Non Furnished" -> {
+                rating.text = "3"
+            }
+            "Studio" -> {
+                rating.text = "2"
+            }
+            else -> {
+                rating.text = "3.5"
+            }
         }
     }
 }
