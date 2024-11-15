@@ -14,6 +14,8 @@ import com.anshuman.uniroomie.Screens.DeatilsViewActivity
 
 class UserAdapter(private val userList: List<User>) :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+    private var filteredList: MutableList<User> = userList.toMutableList()
+
 
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val flatImageView: ImageView = itemView.findViewById(R.id.pivFlatimage)
@@ -88,4 +90,12 @@ class UserAdapter(private val userList: List<User>) :
     }
 
     override fun getItemCount(): Int = userList.size
+    fun filter(query: String) {
+        filteredList = if (query.isEmpty()) {
+            userList.toMutableList()
+        } else {
+            userList.filter { it.personalDetails.userName.contains(query, ignoreCase = true) }.toMutableList()
+        }
+        notifyDataSetChanged()
+    }
 }

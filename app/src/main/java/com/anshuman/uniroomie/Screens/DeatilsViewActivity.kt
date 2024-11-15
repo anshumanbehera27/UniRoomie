@@ -85,9 +85,6 @@ class DeatilsViewActivity : AppCompatActivity() {
 
                 // Start the MapActivity
                 startActivity(intent)
-
-
-                
             }
             else{
                 Toast.makeText(this, "Invalid Address", Toast.LENGTH_SHORT).show()
