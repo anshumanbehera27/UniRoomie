@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(Home())
         // Add the Bottom Nav to the main Activity
         val bottomNavigationView = binding.bottomNavigation
-
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home ->{
@@ -43,12 +42,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> false
             }
-
         }
-
-
-
-
     }
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit()

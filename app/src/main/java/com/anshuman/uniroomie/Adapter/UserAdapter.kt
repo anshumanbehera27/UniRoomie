@@ -1,22 +1,23 @@
 package com.anshuman.uniroomie.Adapter
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.anshuman.uniroomie.Modles.User
 import com.anshuman.uniroomie.R
 import com.bumptech.glide.Glide
 import com.anshuman.uniroomie.Screens.DeatilsViewActivity
+import com.google.firebase.database.FirebaseDatabase
 
 class UserAdapter(private val userList: List<User>) :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
     private var filteredList: MutableList<User> = userList.toMutableList()
-
-
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val flatImageView: ImageView = itemView.findViewById(R.id.pivFlatimage)
         private val flatTypeTextView: TextView = itemView.findViewById(R.id.tvflatType)
@@ -25,6 +26,7 @@ class UserAdapter(private val userList: List<User>) :
         private val roomSizeTextView: TextView = itemView.findViewById(R.id.tvroomsize)
         private val occupiedTextView: TextView = itemView.findViewById(R.id.tvoccopied)
         private val priceTextView: TextView = itemView.findViewById(R.id.priceTxt)
+        private val favorite :ImageView = itemView.findViewById(R.id.ivFav)
 
         fun bind(user: User) {
             // Bind flat type
@@ -77,6 +79,11 @@ class UserAdapter(private val userList: List<User>) :
                 // Start the detail activity
                 context.startActivity(intent)
             }
+            // Add favorite functionality
+            favorite.setOnClickListener {
+                saveToFavorites(user, favorite)
+
+            }
         }
     }
 
@@ -98,4 +105,32 @@ class UserAdapter(private val userList: List<User>) :
         }
         notifyDataSetChanged()
     }
+
+    private fun saveToFavorites(user: User, favorite: ImageView) {
+        val database = FirebaseDatabase.getInstance()
+        val favoritesRef = database.getReference("favorites")
+
+        // Save user data to Firebase
+        favoritesRef.child(user.userId).setValue(user)
+            .addOnSuccessListener {
+                user.isFavorited = true // Update local model
+                updateFavIcon(user, favorite)
+                Log.d("FAV", "User add Add to Favrioite ")
+
+            }
+            .addOnFailureListener { exception ->
+              Log.d("FAV" , "You got some error for fac ${exception}")
+            }
+    }
+
+    private fun updateFavIcon(user: User, favorite: ImageView) {
+        if (user.isFavorited) {
+            favorite.setImageResource(R.drawable.ic_fav_fill) // Filled icon
+        } else {
+            favorite.setImageResource(R.drawable.favorite) // Outline icon
+        }
+    }
 }
+
+
+

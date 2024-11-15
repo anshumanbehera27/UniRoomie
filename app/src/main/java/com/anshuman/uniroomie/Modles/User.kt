@@ -7,5 +7,6 @@ data class User(
     val flatOwnership: FlatOwnership = FlatOwnership(),
     val personalDetails: PersonalDetails = PersonalDetails(),
     val userPreferences: UserPreferences = UserPreferences(),
-    val flatImages: List<String> = emptyList()
+    val flatImages: List<String> = emptyList(),
+    var isFavorited: Boolean = false
 )
