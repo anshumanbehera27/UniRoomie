@@ -292,6 +292,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
+                android:layout_gravity="center"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp" />
         </LinearLayout>

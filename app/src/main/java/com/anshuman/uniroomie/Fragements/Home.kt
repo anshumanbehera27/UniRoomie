@@ -32,6 +32,7 @@ class Home : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var recommendedRecyclerView: RecyclerView
+    private lateinit var nearbyPropertiesRecyclerView: RecyclerView
     private lateinit var databaseReference: DatabaseReference
     private lateinit var userAdapter: UserAdapter
     private val userList = mutableListOf<User>()
@@ -50,7 +51,7 @@ class Home : Fragment() {
 
         // Reference RecyclerView from binding
         recommendedRecyclerView = binding.recommendedView
-        recommendedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recommendedRecyclerView.layoutManager = LinearLayoutManager(requireContext() , LinearLayoutManager.HORIZONTAL, false)
 
         // Initialize Firebase reference
         databaseReference = FirebaseDatabase.getInstance().getReference("users")
@@ -58,6 +59,11 @@ class Home : Fragment() {
         // Set up UserAdapter and attach it to RecyclerView
         userAdapter = UserAdapter(userList)
         recommendedRecyclerView.adapter = userAdapter
+
+        nearbyPropertiesRecyclerView = binding.nearView
+        nearbyPropertiesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        nearbyPropertiesRecyclerView.adapter = userAdapter
+
 
         // Fetch data from Firebase
         fetchDataFromFirebase()
