@@ -3,7 +3,7 @@ package com.anshuman.uniroomie.Modles
 import java.io.Serializable
 
 data class FlatItem(
-    val flatImages: List<String> = emptyList(),  // List to hold multiple image URIs
+    val flatImages: FlatImages?= null,  // List to hold multiple image URIs
     val flatType: String = "",
     val rentAmount: String = "",
     val houseName: String = "",

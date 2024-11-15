@@ -22,20 +22,20 @@
         android:theme="@style/Theme.UniRoomie"
         tools:targetApi="31">
         <activity
+            android:name=".Screens.test3Activity"
+            android:exported="false" />
+        <activity
             android:name=".Screens.test2"
             android:exported="false" />
         <activity
             android:name=".Screens.TestActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".Screens.DeatilsViewActivity"
             android:exported="false" />
         <activity
             android:name=".Screens.UserOnboardingActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".Screens.LoginScreen"
             android:exported="false" />
@@ -47,17 +47,17 @@
             android:exported="false" />
         <activity
             android:name=".Screens.SplashScreen"
-            android:exported="false" >
-
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+
         </activity>
     </application>
 

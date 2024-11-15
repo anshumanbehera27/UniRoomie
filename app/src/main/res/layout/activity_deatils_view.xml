@@ -23,7 +23,7 @@
                 android:layout_height="420dp">
 
                 <ImageView
-                    android:id="@+id/picDetail"
+                    android:id="@+id/flatimages"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -104,7 +104,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
-                android:text="title"
+                android:text= "Address"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -127,16 +127,17 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/tvLocationView"
                     android:layout_width="wrap_content"
                     android:layout_height="33dp"
                     android:background="@drawable/light_blue_bg"
-                    android:drawableStart="@drawable/cube"
+                    android:drawableStart="@drawable/location"
                     android:drawablePadding="8dp"
                     android:gravity="center"
                     android:paddingStart="16dp"
+                    android:clickable="true"
                     android:paddingEnd="16dp"
-                    android:text="Ask for virtual tour"
+                    android:text="See the Location"
                     android:textColor="@color/blue"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -293,7 +294,7 @@ high-end finishes. Feel inspired by open sight lines that
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
-                android:text="Owner Information"
+                android:text="Flatmate Information"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -317,7 +318,7 @@ high-end finishes. Feel inspired by open sight lines that
                     app:srcCompat="@drawable/profile" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/tvflatusername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -327,21 +328,21 @@ high-end finishes. Feel inspired by open sight lines that
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/imageView14"
+                    android:id="@+id/ivmessage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     app:srcCompat="@drawable/message" />
 
                 <ImageView
-                    android:id="@+id/imageView15"
+                    android:id="@+id/ivphone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     app:srcCompat="@drawable/call" />
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/tvviewPorfile"
                     android:layout_width="wrap_content"
                     android:layout_height="33dp"
                     android:background="@drawable/light_blue_bg"
@@ -353,6 +354,155 @@ high-end finishes. Feel inspired by open sight lines that
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/login_background"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Preference: Drinking -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:gravity="center_vertical"
+                    tools:ignore="ExtraText">
+
+                    <ImageView
+                        android:id="@+id/drinkingIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/drink"
+                        />
+
+                    <TextView
+                        android:id="@+id/drinkingLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Drinks"
+                        android:textSize="16sp"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/drinkingValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textSize="16sp"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <!-- Preference: Workout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/workoutIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/workout"
+                    />
+
+                    <TextView
+                        android:id="@+id/workoutLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Workout"
+                        android:textSize="16sp"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/workoutValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:textSize="16sp"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <!-- Preference: Smoking -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/smokingIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/smok"  />
+
+                    <TextView
+                        android:id="@+id/smokingLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Smoking"
+                        android:textSize="16sp"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/smokingValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                         android:textSize="16sp"
+                         android:textColor="#000000"
+                        tools:ignore="ExtraText" />
+                </LinearLayout>
+
+                <!-- Preference: Non-Vegetarian -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/nonVegetarianIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/nonveg"
+                        />
+
+                    <TextView
+                        android:id="@+id/nonVegetarianLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Non-Vegetarian"
+                        android:textSize="16sp"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/nonVegetarianValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:textSize="16sp"
+                        android:textColor="#000000" />
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

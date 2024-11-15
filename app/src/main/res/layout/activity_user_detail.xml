@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Main image of the flat -->
+        <ImageView
+            android:id="@+id/flatImageDetail"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/house_1" />
+
+        <!-- User name -->
+        <TextView
+            android:id="@+id/userNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="User Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+        <!-- Personal Details Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Details"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/genderDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/dobDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <!-- Flat Details Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flat Details"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/flatTypeDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flat Type"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/rentAmountDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rent Amount"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/addressDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/sizeDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Size"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/occupancyDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Occupancy"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <!-- User Preferences Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preferences"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/drinkPreferenceDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drink"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/nonVegetarianPreferenceDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Non-Vegetarian"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/smokePreferenceDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Smoke"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/workoutPreferenceDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Workout"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray" />
+
+    </LinearLayout>
+</ScrollView>

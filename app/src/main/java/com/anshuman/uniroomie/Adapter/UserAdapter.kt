@@ -1,5 +1,6 @@
 package com.anshuman.uniroomie.Adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.anshuman.uniroomie.Modles.User
 import com.anshuman.uniroomie.R
 import com.bumptech.glide.Glide
+import com.anshuman.uniroomie.Screens.DeatilsViewActivity
 
 class UserAdapter(private val userList: List<User>) :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
@@ -49,6 +51,29 @@ class UserAdapter(private val userList: List<User>) :
             } else {
                 // Set a placeholder if no image is available
                 flatImageView.setImageResource(R.drawable.house_1)
+            }
+
+            // Set item click listener to navigate to the details activity
+            itemView.setOnClickListener {
+                val context = itemView.context
+                val intent = Intent(context, DeatilsViewActivity::class.java)
+
+                // Pass the necessary data to the details activity
+                intent.putExtra("userId", user.userId)
+                intent.putExtra("userName", user.personalDetails.userName)
+                intent.putExtra("address", user.flatAddress.address)
+                intent.putExtra("rentAmount", user.flatAddress.rentAmount)
+                intent.putExtra("flatType", user.flatDetails.flatType)
+                intent.putExtra("roomSize", user.flatDetails.size)
+                intent.putExtra("occupied", user.flatDetails.capacity)
+                intent.putExtra("flatImages", user.flatImages.toTypedArray())
+                intent.putExtra("drinking", user.userPreferences.drink)
+                intent.putExtra("smoking", user.userPreferences.smoke)
+                intent.putExtra("workout", user.userPreferences.workout)
+                intent.putExtra("nonVegetarian", user.userPreferences.nonVegetarian)
+
+                // Start the detail activity
+                context.startActivity(intent)
             }
         }
     }

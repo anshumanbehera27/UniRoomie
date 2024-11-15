@@ -3,15 +3,17 @@ package com.anshuman.uniroomie.fragments
 
 import android.os.Bundle
 import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.anshuman.uniroomie.Adapter.FlatAdapter
-import com.anshuman.uniroomie.Modles.FlatImages
-import com.anshuman.uniroomie.Modles.FlatItem
-import com.anshuman.uniroomie.Modles.UserProfile
+import androidx.recyclerview.widget.RecyclerView
+import com.anshuman.uniroomie.Adapter.UserAdapter
+import com.anshuman.uniroomie.Modles.User
+
 
 import com.anshuman.uniroomie.databinding.FragmentHomeBinding
 import com.google.firebase.database.DataSnapshot
@@ -19,15 +21,18 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
+import com.google.gson.reflect.TypeToken
 
 class Home : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var database: FirebaseDatabase
-    private lateinit var databaseRef: DatabaseReference
-    private lateinit var flatAdapter: FlatAdapter
-    private val flatList = mutableListOf<FlatItem>()
-    private val TAG = "HomeFragment"
+    private lateinit var recommendedRecyclerView: RecyclerView
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var userAdapter: UserAdapter
+    private val userList = mutableListOf<User>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,93 +40,55 @@ class Home : Fragment() {
     ): View? {
         // Inflate layout and initialize ViewBinding
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        recommendedRecyclerView = binding.recommendedView
+        // Reference RecyclerView from binding
+        recommendedRecyclerView = binding.recommendedView
+        recommendedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Initialize Firebase Database reference
-        database = FirebaseDatabase.getInstance()
-        databaseRef = database.getReference("users")
+        // Initialize Firebase reference
+        databaseReference = FirebaseDatabase.getInstance().getReference("users")
 
-
-
-
-
-
-        // Initialize the RecyclerView adapter and set it to the RecyclerView
-        flatAdapter = FlatAdapter(flatList)
-        binding.recommendedView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recommendedView.adapter = flatAdapter
-        binding.recommendedView.setHasFixedSize(true)
+        // Set up UserAdapter and attach it to RecyclerView
+        userAdapter = UserAdapter(userList)
+        recommendedRecyclerView.adapter = userAdapter
 
         // Fetch data from Firebase
-        fetchFlatData()
-
-        binding.nearView.layoutManager = LinearLayoutManager(requireContext())
-        binding.nearView.adapter = flatAdapter
-        binding.nearView.setHasFixedSize(true)
+        fetchDataFromFirebase()
 
         return binding.root
     }
 
-    private fun fetchFlatData() {
-        // Attach ValueEventListener to the Firebase database
-        databaseRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                flatList.clear()
+    private fun fetchDataFromFirebase() {
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                userList.clear()
 
-                // Iterate through each user profile in the Firebase snapshot
-                for (userSnapshot in snapshot.children) {
-                    val userProfile = userSnapshot.getValue(UserProfile::class.java)
+                try {
+                    val type = object : TypeToken<Map<String, Any>>() {}.type
+                    val dataMap: Map<String, Any> = dataSnapshot.value as? Map<String, Any> ?: emptyMap()
 
-                    // Ensure userProfile is not null
-                    userProfile?.let { profile ->
-                        // Convert image list from Firebase if exists
-                        val flatImages = userSnapshot.child("flatDetails").child("images").let {
-                            convertArrayListToFlatImages(it)
-                        }
+                    for ((userId, userData) in dataMap) {
+                        val jsonString = Gson().toJson(userData, type)
+                        val user = Gson().fromJson(jsonString, User::class.java)?.copy(userId = userId)
+                        user?.let { userList.add(it) }
+                    }
+                    userAdapter.notifyDataSetChanged()
 
-                        // Map UserProfile to FlatItem
-                        val flatItem = FlatItem(
-                            flatImages = profile.flatImages.images.takeIf { it.isNotEmpty() } ?: listOf("default_image_uri"), // Add a default if no images
-
-                            flatType = profile.flatDetails.flatType,
-                            rentAmount = profile.flatAddress.rentAmount.toString(),
-                            houseName = profile.personalDetails.userName,
-                            address = profile.flatAddress.address,
-                            size = profile.flatDetails.size,
-                            occupancy = profile.flatDetails.occupied,
-
-                        )
-
-                        // Add the mapped FlatItem to the list
-                        flatList.add(flatItem)
-                    } ?: Log.w(TAG, "UserProfile is null or incomplete")
+                } catch (e: JsonSyntaxException) {
+                    Log.e("HomeFragment", "JSON Parsing error: ${e.message}")
+                    Toast.makeText(requireContext(), "Data format error", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Log.e("HomeFragment", "Error: ${e.message}")
+                    Toast.makeText(requireContext(), "Failed to load data", Toast.LENGTH_SHORT).show()
                 }
-
-                // Notify the adapter that the data has changed
-                flatAdapter.notifyDataSetChanged()
             }
 
-            override fun onCancelled(error: DatabaseError) {
-                // Log the error if the Firebase data fetch is cancelled or fails
-                Log.e(TAG, "Failed to read value: ${error.message}")
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("HomeFragment", "Database error: ${databaseError.message}")
+                Toast.makeText(requireContext(), "Failed to retrieve data", Toast.LENGTH_SHORT).show()
             }
         })
     }
 
-    // Custom method to convert ArrayList from Firebase to FlatImages
-    private fun convertArrayListToFlatImages(dataSnapshot: DataSnapshot): FlatImages? {
-        val imagesList = mutableListOf<String>()
 
-        // Check if the snapshot contains data and is of ArrayList type
-        if (dataSnapshot.exists() && dataSnapshot.value is List<*>) {
-            val dataList = dataSnapshot.value as List<*>
-            for (item in dataList) {
-                if (item is String) {
-                    imagesList.add(item)  // Add image URI to the list
-                }
-            }
-        }
-
-        // Return a new FlatImages object with the list of images
-        return if (imagesList.isNotEmpty()) FlatImages(imagesList) else null
-    }
 }

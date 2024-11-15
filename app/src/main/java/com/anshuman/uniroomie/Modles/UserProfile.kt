@@ -1,6 +1,7 @@
 package com.anshuman.uniroomie.Modles
 
 import android.graphics.Bitmap
+import java.io.Serializable
 
 
 data class UserProfile(
@@ -8,8 +9,8 @@ data class UserProfile(
     val flatOwnership: FlatOwnership = FlatOwnership(),
     val flatAddress: FlatAddress = FlatAddress(),
   val flatImages: FlatImages = FlatImages(),
-  //  val flatImages: FlatImages? = null,
+
     val flatDetails: FlatDetails = FlatDetails(),
     val userImage: UserImage = UserImage(),
     val UserPreferences: UserPreferences = UserPreferences()
-)
+): Serializable

@@ -6,54 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Screens.TestActivity">
-    <Button
-        android:id="@+id/btnAddMovie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
 
-        android:text="Add Movie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewGender" />
-
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="4dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textViewDob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="177dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
-
-    <TextView
-        android:id="@+id/textViewGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="87dp"
-        android:layout_marginEnd="177dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewDob" />
-
-
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/recycleView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_marginTop="4dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

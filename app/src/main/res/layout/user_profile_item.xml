@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true">
+
+    <!-- Image for flat -->
+    <ImageView
+        android:id="@+id/flatImage"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/house_1" />
+
+    <!-- User name -->
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="User Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black" />
+
+    <!-- Flat type -->
+    <TextView
+        android:id="@+id/flatType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flat Type"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray" />
+
+    <!-- Rent amount -->
+    <TextView
+        android:id="@+id/rentAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rent Amount"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray" />
+</LinearLayout>
