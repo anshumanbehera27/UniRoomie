@@ -1,6 +1,5 @@
 package com.anshuman.uniroomie.Fragements
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.anshuman.uniroomie.Modles.PersonalDetails
 import com.anshuman.uniroomie.R
-import com.anshuman.uniroomie.Screens.TestActivity
 import com.anshuman.uniroomie.ViewModels.UserProfileViewModel
 import com.anshuman.uniroomie.databinding.FragmentBasicDeatils1Binding
 

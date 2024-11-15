@@ -8,13 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.anshuman.uniroomie.R
 
 
-class TestActivity : AppCompatActivity() {
-
-
+class MessageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test)
+        setContentView(R.layout.activity_message)
+
 
 
 

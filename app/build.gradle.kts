@@ -80,6 +80,10 @@ dependencies {
     implementation ("com.android.support:support-compat:26.1.0")
     implementation ("androidx.core:core:1.13.1")
 
+    // Picaso Dependecy
+    implementation ("com.squareup.picasso:picasso:2.8")
+
+
 
 
 

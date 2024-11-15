@@ -43,6 +43,7 @@ class favorite : Fragment() {
         favoriteAdapter = FavoriteAdapter(requireContext(), favoriteList)
 
         FavRecycleView.layoutManager = LinearLayoutManager(requireContext())
+        FavRecycleView.setHasFixedSize(true)
         FavRecycleView.adapter = favoriteAdapter
 
      // Call the FavoriteData Fathch data For the New one

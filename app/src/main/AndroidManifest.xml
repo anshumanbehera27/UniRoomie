@@ -30,7 +30,7 @@
             android:name=".Screens.MapActivity"
             android:exported="false" />
         <activity
-            android:name=".Screens.TestActivity"
+            android:name=".Screens.MessageActivity"
             android:exported="false"/>
         <activity
             android:name=".Screens.DeatilsViewActivity"
