@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anshuman.uniroomie.Adapter.FavoriteAdapter
 import com.anshuman.uniroomie.Modles.User
-import com.anshuman.uniroomie.R
+
 import com.anshuman.uniroomie.databinding.FragmentFavoriteBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,7 +30,7 @@ class favorite : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
          binding = FragmentFavoriteBinding.inflate(inflater , container , false)
 
         binding.topAppBar.title = "Favorites"

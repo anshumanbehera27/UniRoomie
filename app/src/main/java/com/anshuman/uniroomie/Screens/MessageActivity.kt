@@ -1,15 +1,14 @@
 package com.anshuman.uniroomie.Screens
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.anshuman.uniroomie.Adapter.MessageAdapter
 import com.anshuman.uniroomie.Modles.Message
-import com.anshuman.uniroomie.R
 import com.anshuman.uniroomie.databinding.ActivityMessageBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -67,6 +66,7 @@ class MessageActivity : AppCompatActivity() {
     private fun loadMessages() {
         val chatId = if (senderId > receiverId) "$senderId-$receiverId" else "$receiverId-$senderId"
         database.child("chats").child(chatId).addValueEventListener(object : ValueEventListener {
+            @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
                 messageList.clear()
                 for (messageSnapshot in snapshot.children) {

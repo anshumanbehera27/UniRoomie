@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.anshuman.uniroomie.MainActivity
-import com.anshuman.uniroomie.R
+
 import com.anshuman.uniroomie.databinding.ActivityLoginScreenBinding
 import com.google.firebase.auth.FirebaseAuth
 

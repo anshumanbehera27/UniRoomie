@@ -1,6 +1,6 @@
 package com.anshuman.uniroomie.Adapter
 
-import android.content.Intent
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.anshuman.uniroomie.Modles.User
 import com.anshuman.uniroomie.R
-import com.anshuman.uniroomie.Screens.MessageActivity
+
 
 class UserMsgAdapter( private val userList: List<User>,
                       private val onUserClick: (Int) -> Unit) : RecyclerView.Adapter<UserMsgAdapter.UserMsgViewHolder>() {
