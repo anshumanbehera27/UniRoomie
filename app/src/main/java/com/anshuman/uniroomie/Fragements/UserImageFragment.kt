@@ -17,13 +17,14 @@ import com.anshuman.uniroomie.R
 import com.anshuman.uniroomie.ViewModels.UserProfileViewModel
 import com.anshuman.uniroomie.databinding.FragmentUserPictureBinding
 
+
 class UserImageFragment : Fragment() {
 
     private var _binding: FragmentUserPictureBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var userProfileViewModel: UserProfileViewModel
-
+ // private lateinit var userDetailsViewModel: UserDetailsViewModel
     private val PICK_IMAGE_REQUEST = 1
     private val TAKE_PICTURE_REQUEST = 2
     private var selectedImageBitmap: Bitmap? = null
@@ -41,6 +42,8 @@ class UserImageFragment : Fragment() {
 
         // Initialize ViewModel
         userProfileViewModel = ViewModelProvider(requireActivity()).get(UserProfileViewModel::class.java)
+
+       // userDetailsViewModel = ViewModelProvider(requireActivity()).get(userDetailsViewModel::class.java)
 
         // Open Gallery on image input click
         binding.imageprofileinput.setOnClickListener {
@@ -84,8 +87,12 @@ class UserImageFragment : Fragment() {
             when (requestCode) {
                 PICK_IMAGE_REQUEST -> {
                     val imageUri = data?.data
+
                     binding.imageprofileinput.setImageURI(imageUri) // Display the selected image
+
                     selectedImageBitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, imageUri)
+
+
                 }
                 TAKE_PICTURE_REQUEST -> {
                     val photo = data?.extras?.get("data") as Bitmap

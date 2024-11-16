@@ -48,6 +48,8 @@ class Home : Fragment() {
 
         searchbar = binding.searchEdt
         // Set up RecyclerView
+        binding.topAppBar.title = "Home"
+
 
         // Reference RecyclerView from binding
         recommendedRecyclerView = binding.recommendedView

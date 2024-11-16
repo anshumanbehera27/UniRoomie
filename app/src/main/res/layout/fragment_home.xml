@@ -8,10 +8,25 @@
 
     android:background="@color/login_background"
     tools:context=".Fragements.Home">
+    <com.google.android.material.appbar.MaterialToolbar
+    android:id="@+id/topAppBar"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:background="@color/blue"
+    android:elevation="4dp"
+    android:title="Home"
+    app:titleTextColor="@color/white"
+    android:titleTextColor="@android:color/white"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="408dp"
+        android:layout_height="654dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -291,8 +306,8 @@
                 android:id="@+id/nearView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clipToPadding="false"
                 android:layout_gravity="center"
+                android:clipToPadding="false"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp" />
         </LinearLayout>

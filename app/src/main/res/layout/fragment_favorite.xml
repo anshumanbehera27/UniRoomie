@@ -6,15 +6,28 @@
     android:background="@color/login_background"
     android:layout_height="match_parent"
     tools:context=".Fragements.favorite">
+    <com.google.android.material.appbar.MaterialToolbar
+    android:id="@+id/topAppBar"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:background="@color/blue"
+    android:elevation="4dp"
+    android:title="Profile"
+    app:titleTextColor="@color/white"
+
+    android:titleTextColor="@android:color/white"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favRecycleView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="413dp"
+        android:layout_height="655dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar" />
 
 
 

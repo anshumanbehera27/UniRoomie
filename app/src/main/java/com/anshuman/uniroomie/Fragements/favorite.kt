@@ -33,6 +33,10 @@ class favorite : Fragment() {
     ): View? {
          binding = FragmentFavoriteBinding.inflate(inflater , container , false)
 
+        binding.topAppBar.title = "Favorites"
+
+
+
         val FavRecycleView = binding.favRecycleView
         // Initialize Firebase references
         database = FirebaseDatabase.getInstance()

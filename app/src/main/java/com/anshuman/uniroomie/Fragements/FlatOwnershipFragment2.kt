@@ -39,7 +39,7 @@ class FlatOwnershipFragment2 : Fragment() {
         yesButton.setOnClickListener {
             // Update UI to show selection
             yesButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink))
-            noButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.color2))
+
             hasFlat = true
             updateFlatOwnershipInViewModel()
         }
@@ -47,7 +47,7 @@ class FlatOwnershipFragment2 : Fragment() {
         noButton.setOnClickListener {
             // Update UI to show selection
             noButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pink))
-            yesButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.color2))
+
             hasFlat = false
             updateFlatOwnershipInViewModel()
         }

@@ -13,11 +13,13 @@ import com.anshuman.uniroomie.R
 import com.anshuman.uniroomie.ViewModels.UserProfileViewModel
 import com.anshuman.uniroomie.databinding.FragmentFlatInfoBinding
 
+
 class FlatAddressFragment4 : Fragment() {
 
     private var _binding: FragmentFlatInfoBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: UserProfileViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +27,7 @@ class FlatAddressFragment4 : Fragment() {
     ): View? {
         _binding = FragmentFlatInfoBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(requireActivity()).get(UserProfileViewModel::class.java)
+
         return binding.root
     }
 
@@ -77,6 +80,9 @@ class FlatAddressFragment4 : Fragment() {
             return
         }
         binding.inputMonthlyAmount.error = null
+        // Update for room DB Data base
+
+
 
         // Update ViewModel and navigate
         val flatAddress = FlatAddress(address, monthlyAmount)

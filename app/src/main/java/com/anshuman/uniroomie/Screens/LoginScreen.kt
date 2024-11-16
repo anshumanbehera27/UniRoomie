@@ -35,6 +35,8 @@ class LoginScreen : AppCompatActivity() {
 
             // Attempt login with Firebase Authentication
             loginUser(email, password)
+
+            finish()
         }
     }
 

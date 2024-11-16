@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+    id("kotlin-kapt")
 
 
 }
@@ -82,6 +83,20 @@ dependencies {
 
     // Picaso Dependecy
     implementation ("com.squareup.picasso:picasso:2.8")
+
+
+    // roomDB data base
+    // Room components
+    implementation ("androidx.room:room-runtime:2.5.0")// Or your current version
+    kapt ("androidx.room:room-compiler:2.5.0")// Or your current version
+
+    implementation ("androidx.room:room-ktx:2.5.0")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0")
+// Optional for Coroutines support
+
+    // Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
 
 

@@ -20,7 +20,6 @@ class UserPreferencesFragment : Fragment() {
     private var _binding: FragmentUserPersonalInfoBinding? = null
     private val binding get() = _binding!!
     private lateinit var userProfileViewModel: UserProfileViewModel
-
     private var drink: Boolean = false
     private var smoke: Boolean = false
     private var workout: Boolean = false
@@ -70,6 +69,7 @@ class UserPreferencesFragment : Fragment() {
             // Update preferences in the ViewModel
             val userPreferences = UserPreferences(drink, smoke, workout, nonVegetarian)
             userProfileViewModel.updateUserPreferences(userPreferences)
+
             // TODO Call the Function to Upload all the data to fire base
             userProfileViewModel.uploadUserData { success ->
                 if (success) {
@@ -77,10 +77,13 @@ class UserPreferencesFragment : Fragment() {
                     // Navigate to MainActivity or another screen
                     val intent = Intent(requireContext(), MainActivity::class.java)
                     startActivity(intent)
+
+
                 } else {
                     Toast.makeText(requireContext(), "Failed to upload profile", Toast.LENGTH_SHORT).show()
                 }
             }
+
 
 
 
